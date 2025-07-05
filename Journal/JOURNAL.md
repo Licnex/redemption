@@ -23,4 +23,16 @@ Just finished the BOM.csv and read me I think they will be nice for now.
 Alright leme cook up a schematic for this thing though it wont use a pcb I think I should still have one.![alt text](image-1.png)
 -Worked on it for 4 hours
 
-7:02pm/03/july
+7:02pm/03/july/2025
+I should work on the basic chassis now.
+-Worked on it for 2 hours
+
+9:03pm/03/july/2025
+chassis is alright, it isnt great (I will add motor mounts to do 3d once I understand the proper code).
+
+1:01pm/04/july/2025
+I forgor how qtr and pid works so Imma watch a video on that.
+-Worked on it for an hour.
+
+2:23/04/july/2025
+Alright i am pretty burned out so Ill just relax for a day.
