@@ -45,3 +45,5 @@ Alright I finished the pid code. Now the nerc track code and the test code is le
 6:00pm alright I just checked, digilog has the tb661fng a motordriver much better than a zk5ad,leme update the bom and what not to have that. - worked on it for 5 minutes.
 8:01pm/06/july/2025
 Aftari and prayers are done, Im going to code in arduino IDE for a bit-Actually I just remembered I have to update the schematic for the tb6612fng. -worked for 12 minutes
+10:05/06/july/2025
+Alright I finished the PID Test and motors test.ino and also reformated the code for tb6612fnd, zk5ad uses its direction pins as pwm pins, tb5512fng does not, had to learn how everything worked since im not familiar with tb6612fng. 

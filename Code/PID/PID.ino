@@ -1,85 +1,91 @@
 #include <QTRSensors.h>
 
 // === QTR Sensor Setup ===
-const uint8_t numSensors = 8;
-const uint8_t emitterControlPin = A8; // Connect to LEDON or set to QTR_NO_EMITTER_PIN
-QTRSensorsAnalog qtr(
-  (uint8_t[]){A0, A1, A2, A3, A4, A5, A6, A7},
-  numSensors,
-  2500,
-  emitterControlPin
-);
-unsigned int sensorValues[8];
+const uint8_t NUM_SENSORS = 8;
+QTRSensorsAnalog qtr((const uint8_t[]){A0, A1, A2, A3, A4, A5, A6, A7}, NUM_SENSORS);
 
-// === Motor Driver Pins ===
-const int motorLeftIn1 = 8;
-const int motorLeftIn2 = 9;
-const int motorLeftPWM = 10;
+uint16_t sensorValues[NUM_SENSORS];
 
-const int motorRightIn1 = 6;
-const int motorRightIn2 = 7;
-const int motorRightPWM = 5;
+// === Motor Pins ===
+const int RmPWM = 7;
+const int RmF   = 6;
+const int RmB   = 5;
+const int LmPWM = 2;
+const int LmF   = 3;
+const int LmB   = 4;
 
 // === PID Constants ===
 float Kp = 0.2;
 float Ki = 0.0;
-float Kd = 5.0;
-
-int baseSpeed = 120;
-int maxMotorSpeed = 255;
+float Kd = 4.0;
 
 int lastError = 0;
-int integral = 0;
+float integral = 0;
+
+// === Speed Settings ===
+const int baseSpeed = 120;
+const int maxSpeed  = 255;
 
 void setup() {
-  pinMode(motorLeftIn1, OUTPUT);
-  pinMode(motorLeftIn2, OUTPUT);
-  pinMode(motorLeftPWM, OUTPUT);
-
-  pinMode(motorRightIn1, OUTPUT);
-  pinMode(motorRightIn2, OUTPUT);
-  pinMode(motorRightPWM, OUTPUT);
-
   Serial.begin(9600);
+
+  // Motor setup
+  pinMode(RmPWM, OUTPUT);
+  pinMode(RmF, OUTPUT);
+  pinMode(RmB, OUTPUT);
+  pinMode(LmPWM, OUTPUT);
+  pinMode(LmF, OUTPUT);
+  pinMode(LmB, OUTPUT);
+
+  // Sensor emitters on (only required if you tied the LEDON pin to a GPIO)
+  // qtr.emittersOn();
 }
 
 void loop() {
-  // Read line position without calibration
-  int position = qtr.readLine(sensorValues, QTR_EMITTERS_ON, false); // no calibration
-  int error = position - 3500; // center for 8 sensors = 7 * 1000 / 2 = 3500
+  int position = qtr.readLineBlack(sensorValues); // returns 0–7000
+  int error = position - 3500;
 
   integral += error;
   int derivative = error - lastError;
-  int correction = Kp * error + Ki * integral + Kd * derivative;
+  float correction = Kp * error + Ki * integral + Kd * derivative;
+
+  int rightSpeed = baseSpeed - correction;
+  int leftSpeed  = baseSpeed + correction;
+
+  rightSpeed = constrain(rightSpeed, -maxSpeed, maxSpeed);
+  leftSpeed  = constrain(leftSpeed, -maxSpeed, maxSpeed);
+
+  driveMotors(rightSpeed, leftSpeed);
   lastError = error;
 
-  int leftSpeed = baseSpeed + correction;
-  int rightSpeed = baseSpeed - correction;
-
-  leftSpeed = constrain(leftSpeed, 0, maxMotorSpeed);
-  rightSpeed = constrain(rightSpeed, 0, maxMotorSpeed);
-
-  setMotorSpeeds(leftSpeed, rightSpeed);
+  delay(10);
 }
 
-void setMotorSpeeds(int leftSpeed, int rightSpeed) {
-  if (leftSpeed >= 0) {
-    digitalWrite(motorLeftIn1, HIGH);
-    digitalWrite(motorLeftIn2, LOW);
+void driveMotors(int rightPWM, int leftPWM) {
+  // Right motor
+  if (rightPWM > 0) {
+    digitalWrite(RmF, HIGH);
+    digitalWrite(RmB, LOW);
+  } else if (rightPWM < 0) {
+    digitalWrite(RmF, LOW);
+    digitalWrite(RmB, HIGH);
   } else {
-    digitalWrite(motorLeftIn1, LOW);
-    digitalWrite(motorLeftIn2, HIGH);
-    leftSpeed = -leftSpeed;
+    digitalWrite(RmF, LOW);
+    digitalWrite(RmB, LOW);
   }
-  analogWrite(motorLeftPWM, constrain(leftSpeed, 0, 255));
 
-  if (rightSpeed >= 0) {
-    digitalWrite(motorRightIn1, HIGH);
-    digitalWrite(motorRightIn2, LOW);
+  // Left motor
+  if (leftPWM > 0) {
+    digitalWrite(LmF, HIGH);
+    digitalWrite(LmB, LOW);
+  } else if (leftPWM < 0) {
+    digitalWrite(LmF, LOW);
+    digitalWrite(LmB, HIGH);
   } else {
-    digitalWrite(motorRightIn1, LOW);
-    digitalWrite(motorRightIn2, HIGH);
-    rightSpeed = -rightSpeed;
+    digitalWrite(LmF, LOW);
+    digitalWrite(LmB, LOW);
   }
-  analogWrite(motorRightPWM, constrain(rightSpeed, 0, 255));
+
+  analogWrite(RmPWM, abs(rightPWM));
+  analogWrite(LmPWM, abs(leftPWM));
 }
