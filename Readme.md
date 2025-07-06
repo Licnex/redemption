@@ -10,7 +10,7 @@ An Advanced PID LFR, that will be programmed to go into the competition NERC 202
 - Sensors: QTR 8A
 
 ### Curcit:
-![alt text](image-1.png)
+![alt text](image.png)
 ### Chassis:
 ![alt text](image-2.png)
 ## License

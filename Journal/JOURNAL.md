@@ -40,6 +40,8 @@ Oh mb the journal is supposed to have the time spent written day wise as well.
 -worked on it for 10 minutes
 4:10pm/06/july/2025
 I should work on the code now. I'll  have to make multiple iterations and take this step by step but it should be easy. -worked on it for an hour
-5:31pm/06/july/2024
+5:31pm/06/july/2025
 Alright I finished the pid code. Now the nerc track code and the test code is left, those will take some time. -worked on it for 20 minutes
 6:00pm alright I just checked, digilog has the tb661fng a motordriver much better than a zk5ad,leme update the bom and what not to have that. - worked on it for 5 minutes.
+8:01pm/06/july/2025
+Aftari and prayers are done, Im going to code in arduino IDE for a bit-Actually I just remembered I have to update the schematic for the tb6612fng. -worked for 12 minutes
