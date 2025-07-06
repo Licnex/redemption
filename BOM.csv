@@ -4,5 +4,5 @@ Motors,2,29.9$,Jsumo, JS19198,JSUMO JS19198 - JSUMO ProFast Motors 5900 rpm 12v,
 Motors,2,29.9$,Jsumo, JS19199,JSUMO JS15199- JSUMO ProFast Motors 2000 rpm 12v,These are the 2000 rpm motors, these have a low rpm so they are there just incase.
 Wheels,1,16.7$,Jsumo, JS2042,JSUMO JS2042 - JSUMO 2WD Wheels,These are the wheels I am using, they are 20x42mm and are sillicone high grip wheels.
 microcontroller,1,$53.59,Sparkfun,DEV-16997, teensy 4.0,This is the microcontroller I am using, it has a lot of pins and is fast enough to handle the sensors and motors.
-Motor Driver,1,$1.6,Digilog,Zk5ad,Zk5ad motordriver,Decent cheap motordriver, I am very familiar with it.
+Motor Driver,1,$1.6,Digilog,Tb6612fng,Tb6612gnd motor motordriver,Decent cheap motordriver, I am not very familiar with it but it seems to work well with the teensy 4.0 and the motors.
 Buck Converter,1,$1.4,mekatroniks,LM2596S,LM2596S,A 5v buck works well since teensy 4.0 needs 5v to run and outputs the 3v i need for the sensors. 

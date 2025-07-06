@@ -35,6 +35,11 @@ I forgor how qtr and pid works so Imma watch a video on that.
 2:23/04/july/2025
 Alright i am pretty burned out so Ill just relax for a day.) - 04/july/2025 worked for 1 hour total.
 
-3:59/06/july/2025
+3:59pm/06/july/2025
 Oh mb the journal is supposed to have the time spent written day wise as well.
 -worked on it for 10 minutes
+4:10pm/06/july/2025
+I should work on the code now. I'll  have to make multiple iterations and take this step by step but it should be easy. -worked on it for an hour
+5:31pm/06/july/2024
+Alright I finished the pid code. Now the nerc track code and the test code is left, those will take some time. -worked on it for 20 minutes
+6:00pm alright I just checked, digilog has the tb661fng a motordriver much better than a zk5ad,leme update the bom and what not to have that. - worked on it for 5 minutes.
