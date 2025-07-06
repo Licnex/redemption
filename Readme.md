@@ -1,12 +1,11 @@
 # Redemption
-
 An Advanced PID LFR, that will be programmed to go into the competition NERC 2026 inshallah.
 ## Getting Started
 
 ### Specs
 
 - Microcontroller: Teensy 4.0
-- Motor Driver: Drv8871
+- Motor Driver: Tb6612fng motor driver
 - Chassis, ball caster, wheels, screws, all the minor things: Jsumo
 - Sensors: QTR 8A
 
