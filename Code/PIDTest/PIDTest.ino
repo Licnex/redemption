@@ -1,8 +1,8 @@
 #include <QTRSensors.h>
 
 // === QTR Sensor Setup ===
-const uint8_t NUM_SENSORS = 8;
-QTRSensorsAnalog qtr((const uint8_t[]){A0, A1, A2, A3, A4, A5, A6, A7}, NUM_SENSORS);
+const uint8_t NUM_SENSORS = 13;
+QTRSensors qtr;
 
 uint16_t sensorValues[NUM_SENSORS];
 
@@ -14,7 +14,7 @@ float Kd = 4.0;
 int lastError = 0;
 float integral = 0;
 
-// === Speed Settings ===
+// === Speed Settings (for simulation only) ===
 const int baseSpeed = 120;
 const int maxSpeed  = 255;
 
@@ -22,27 +22,32 @@ void setup() {
   Serial.begin(9600);
   delay(500);
   Serial.println("QTR Sensor Debug Test (No Motor Output)");
+
+  // QTR sensor setup (analog mode)
+  qtr.setTypeAnalog();
+  qtr.setSensorPins((const uint8_t[]) {
+    A3, A2, A1, A0, A17, A16, A15, A14, A13, A12, A11, A10, A9
+  }, NUM_SENSORS);
 }
 
 void loop() {
-  // Read position (0 to 7000)
+  // Read line position (0 to 12000 for 13 sensors)
   int position = qtr.readLineBlack(sensorValues);
-  int error = position - 3500;
+  int error = position - 6500; // 6500 is center for 13 sensors
 
   // PID computation
   integral += error;
   int derivative = error - lastError;
   float correction = Kp * error + Ki * integral + Kd * derivative;
 
-  // Calculate motor speeds
+  // Simulated motor outputs
   int rightMotor = baseSpeed - correction;
   int leftMotor  = baseSpeed + correction;
 
-  // Clamp to max range
   rightMotor = constrain(rightMotor, -maxSpeed, maxSpeed);
   leftMotor  = constrain(leftMotor, -maxSpeed, maxSpeed);
 
-  // === Print Output ===
+  // === Debug Print ===
   Serial.print("Raw: ");
   for (uint8_t i = 0; i < NUM_SENSORS; i++) {
     Serial.print(sensorValues[i]);
@@ -59,5 +64,5 @@ void loop() {
   Serial.println(rightMotor);
 
   lastError = error;
-  delay(200); // readable output
+  delay(200); // Easier to read in Serial Monitor
 }

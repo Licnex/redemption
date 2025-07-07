@@ -1,9 +1,8 @@
 #include <QTRSensors.h>
 
 // === QTR Sensor Setup ===
-const uint8_t NUM_SENSORS = 8;
-QTRSensorsAnalog qtr((const uint8_t[]){A0, A1, A2, A3, A4, A5, A6, A7}, NUM_SENSORS);
-
+const uint8_t NUM_SENSORS = 13;
+QTRSensors qtr;
 uint16_t sensorValues[NUM_SENSORS];
 
 // === Motor Pins ===
@@ -37,13 +36,16 @@ void setup() {
   pinMode(LmF, OUTPUT);
   pinMode(LmB, OUTPUT);
 
-  // Sensor emitters on (only required if you tied the LEDON pin to a GPIO)
-  // qtr.emittersOn();
+  // QTR Sensor Setup
+  qtr.setTypeAnalog();
+  qtr.setSensorPins((const uint8_t[]) {
+    A3, A2, A1, A0, A17, A16, A15, A14, A13, A12, A11, A10, A9
+  }, NUM_SENSORS);
 }
 
 void loop() {
-  int position = qtr.readLineBlack(sensorValues); // returns 0–7000
-  int error = position - 3500;
+  int position = qtr.readLineBlack(sensorValues); // returns 0–12000
+  int error = position - 6500; // center for 13 sensors
 
   integral += error;
   int derivative = error - lastError;
@@ -58,7 +60,7 @@ void loop() {
   driveMotors(rightSpeed, leftSpeed);
   lastError = error;
 
-  delay(10);
+  delay(10); // loop rate
 }
 
 void driveMotors(int rightPWM, int leftPWM) {

@@ -1,7 +1,7 @@
 #include <QTRSensors.h>
 
 // === QTR Sensor Setup ===
-const uint8_t NUM_SENSORS = 8;
+const uint8_t NUM_SENSORS = 13;
 QTRSensors qtr;
 uint16_t sensorValues[NUM_SENSORS];
 
@@ -27,7 +27,8 @@ const int maxSpeed = 255;
 // === Junction Vars ===
 bool junc = false;
 int juncCount = 0;
-int threshold = 600; // Adjust based on surface
+int threshold = 600; // Adjust this as needed
+int Track = 1;
 
 void setup() {
   Serial.begin(9600);
@@ -40,9 +41,11 @@ void setup() {
   pinMode(LmF, OUTPUT);
   pinMode(LmB, OUTPUT);
 
-  // Sensor setup
+  // QTR setup: using 13 analog pins in custom order
   qtr.setTypeAnalog();
-  qtr.setSensorPins((const uint8_t[]){A0, A1, A2, A3, A4, A5, A6, A7}, NUM_SENSORS);
+  qtr.setSensorPins((const uint8_t[]) {
+    A3, A2, A1, A0, A17, A16, A15, A14, A13, A12, A11, A10, A9
+  }, NUM_SENSORS);
 }
 
 void loop() {
@@ -50,10 +53,10 @@ void loop() {
   int blackCount = BlackCount();
 
   // Detect a junction (5+ black sensors)
-  while (blackCount >= 5) {
+  while (blackCount >= 8) {
     position = qtr.readLineBlack(sensorValues);
     blackCount = BlackCount();
-    driveMotors(255, 255); // charge into junction
+    driveMotors(255, 255);
     junc = true;
   }
 
@@ -66,23 +69,30 @@ void loop() {
 
   // Turn decisions
   if (juncCount == 4 || juncCount == 7 || juncCount == 16 || juncCount == 17) {
+    if (Track == 1){ 
     Left90();
+    }
+    else {
+    Right90();
+    }
   }
 
   if (juncCount == 11 || juncCount == 12 || juncCount == 21 || juncCount == 22) {
+    if (Track == 1){
     Right90();
+    }
+    else {
+    Left90();
+    }
   }
 
-  // Follow line as default behavior
+  // Line following
   linefollow(position);
 }
 
 void driveMotors(int rightPWM, int leftPWM) {
-  // Right motor
   digitalWrite(RmF, rightPWM > 0);
   digitalWrite(RmB, rightPWM < 0);
-
-  // Left motor
   digitalWrite(LmF, leftPWM > 0);
   digitalWrite(LmB, leftPWM < 0);
 
@@ -91,8 +101,7 @@ void driveMotors(int rightPWM, int leftPWM) {
 }
 
 void linefollow(int position) {
-  int error = position - 3500;
-
+  int error = position - 6500; // 13 sensors × 1000/2 = 6500 center
   integral += error;
   int derivative = error - lastError;
   float correction = Kp * error + Ki * integral + Kd * derivative;
@@ -106,48 +115,40 @@ void linefollow(int position) {
   driveMotors(rightSpeed, leftSpeed);
   lastError = error;
 }
+
 int BlackCount() {
-  int blackSensorCount = 0;
+  int count = 0;
   for (int i = 0; i < NUM_SENSORS; i++) {
-    if (sensorValues[i] > threshold) {
-      blackSensorCount++;
-    }
+    if (sensorValues[i] > threshold) count++;
   }
-  return blackSensorCount;
+  return count;
 }
 
 void Right90() {
   Serial.println(">> Turning right 90°...");
-
   while (true) {
     qtr.read(sensorValues);
-    bool rightOff = sensorValues[6] < threshold && sensorValues[7] < threshold;
-    bool leftOn = sensorValues[2] > threshold || sensorValues[3] > threshold;
-
-    if (rightOff && leftOn) break;
-
-    driveMotors(100, -100); // clockwise turn
+    bool rightOff = sensorValues[10] < threshold && sensorValues[11] < threshold && sensorValues[12] < threshold;
+    bool midLeftOn = sensorValues[5] > threshold || sensorValues[6] > threshold;
+    if (rightOff && midLeftOn) break;
+    driveMotors(100, -100);
     delay(10);
   }
-
   driveMotors(0, 0);
-  Serial.println(">> 90° Right Turn complete.");
-}
+  Serial.println(">> Right 90 complete.");
+} // this works for any degree turn not just 90, i just named it that cause i will be using it in 90 degree turns
 
 void Left90() {
   Serial.println(">> Turning left 90°...");
-
   while (true) {
     qtr.read(sensorValues);
-    bool leftOff = sensorValues[0] < threshold && sensorValues[1] < threshold;
-    bool rightOn = sensorValues[4] > threshold || sensorValues[5] > threshold;
-
-    if (leftOff && rightOn) break;
-
-    driveMotors(-100, 100); // counter-clockwise turn
+    bool leftOff = sensorValues[0] < threshold && sensorValues[1] < threshold && sensorValues[2] < threshold;
+    bool midRightOn = sensorValues[6] > threshold || sensorValues[7] > threshold;
+    if (leftOff && midRightOn) break;
+    driveMotors(-100, 100);
     delay(10);
   }
-
   driveMotors(0, 0);
-  Serial.println(">> 90° Left Turn complete.");
+  Serial.println(">> Left 90 complete.");
 }
+// this works for any degree turn not just 90 i just named it that cause i will be using it in 90 degree turns
