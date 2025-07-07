@@ -7,7 +7,7 @@ created_at: "2025-July-01"
 
 # Redemption - NERC 2026 Line Follower
 
-**Total Hours:** 19.8 hours
+**Total Hours:** 30.1 hours
 
 ---
 
@@ -56,7 +56,7 @@ created_at: "2025-July-01"
 
 ---
 
-## July 7, 2025 - Currently working
+## July 7, 2025 | 10.3 hours 
 
 **(1:32am)** I have done 16 hours of work, I need to do 4 more hours to even begin qualifing for tier 3, so I think if I spend a bit more like 50$ more I can get a qtrx 14a which should be complex enough for me to take 4hours+ to refactor and understand it. Also due it being so advanced I think it should take me longer to do things with it, like soldering it.Imma do that once I finish refactoring this journal. 
 *(worked for 10 minutes)*
@@ -69,10 +69,16 @@ created_at: "2025-July-01"
 
 **(2:46)** I looked at some stm32 stuff, and tallyed and updated the price in the qtr, seems like its just under budget, which is good cause Im going to need the budget for some other stuff like 3d printing the mounts to my chassis, a friend of mine in pakistan is doing printing legion so on that end i should be ok. Im still worried about customs, but lets see maybe they dont charge customs on simple robotics parts. Im going to go update the schematic and code now.*(worked for 1 hour)*
 
-**(3:49pm)** Schematic is done, It took a while to make the custom components for the teensy 4.1, qtr md 13a and have them look good. Now, just the code is left. Oh yeah let me add the images for each day again. (worked for 5 minutes)
+**(3:49pm)** Schematic is done, It took a while to make the custom components for the teensy 4.1, qtr md 13a and have them look good. Now, just the code is left. Oh yeah let me add the images for each day again. *(worked for 5 minutes)*
 
-**(4:05pm)** Also I forogor to add links to my bom leme do that too. (worked 15 minutes)
+**(4:05pm)** Also I forogor to add links to my bom leme do that too. *(worked 15 minutes)*
 
-**(5:21pm)** Alr, the code is done and updated. (worked for 1 hour 30 minutes)
+**(5:21pm)** Alr, the code is done and updated. *(worked for 1 hour 30 minutes)*
 
-**(5:28pm)** Time to work on the 3d model ig.
+**(5:28pm)** Time to work on the 3d model ig. *(worked for 5 hours)*
+
+**(11:40pm)** Chassis is done. So is the motor mount. My project is basically done. Now I just have to make the final picture for my project *(worked for 20 minutes)*
+
+## July 8, 2025 - Currently working
+**(1:57)** Aight the full project in 3d is basically done *(worked for 1 hour 50 minutes)*
+**(2:14am)** I'll find a decent battery besides that Ill just brush up my read me and I think we are good to go.
