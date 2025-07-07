@@ -6,8 +6,8 @@ An Advanced PID LFR, that will be programmed to go into the competition NERC 202
 
 - Microcontroller: Teensy 4.0
 - Motor Driver: Tb6612fng motor driver
-- Chassis, ball caster, wheels, screws, all the minor things: Jsumo
-- Sensors: QTR 8A
+- Chassis, ball caster, wheels, screws, all the minor things: Jsumo kit
+- Sensors: QTR MD 13a
 
 ### Curcit:
 ![alt text](image.png)
