@@ -57,4 +57,11 @@ created_at: "2025-July-01"
 ---
 
 ## 🎯 July 7, 2025 - Next Steps
-**(1:43am)** I have done 16 hours of work, I need to do 4 more hours to even begin qualifing for tier 3, so I think if I spend a bit more like 50$ more I can get a qtrx 14a which should be complex enough for me to take 4hours+ to refactor and understand it. Also due it being so advanced I think it should take me longer to do things with it, like solder it.Imma do that once I finish refactoring this journal. *(worked for 10 minutes)*
+**(1:32am)** I have done 16 hours of work, I need to do 4 more hours to even begin qualifing for tier 3, so I think if I spend a bit more like 50$ more I can get a qtrx 14a which should be complex enough for me to take 4hours+ to refactor and understand it. Also due it being so advanced I think it should take me longer to do things with it, like soldering it.Imma do that once I finish refactoring this journal. 
+*(worked for 10 minutes)*
+**(1:50am)** Alright, qtrx seems a bit difficult but i think it can work, seems a bit difficult. 
+*(worked on it for 1 hour)*
+**(1:32pm)** I just woke up, lets see what I should do, hmm it seems a teensy 4.1 would work best with the qtr md 13a. the qtrx is just 2x more expensive for a minor improvement, leme check how the pice changes with qtr and teensy 4.1. Also im going to do some research on other things I could improve. 
+*(worked for 1 hour)*
+**(2:46)** I looked at some stm32 stuff, and tallyed and updated the price in the qtr, seems like its just under budget, which is good cause Im going to need the budget for some other stuff like 3d printing the mounts to my chassis, a friend of mine in pakistan is doing printing legion so on that end i should be ok. Im still worried about customs, but lets see maybe they dont charge customs on simple robotics parts. Im going to go update the schematic and code now.*(worked for 1 hour)*
+**(3:49pm)** Schematic is done, It took a while to make the custom components for the teensy 4.1, qtr md 13a and have them look good. Now, just the code is left.

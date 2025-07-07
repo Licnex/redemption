@@ -105,10 +105,7 @@ void linefollow(int position) {
 
   driveMotors(rightSpeed, leftSpeed);
   lastError = error;
-
-  delay(10);
 }
-
 int BlackCount() {
   int blackSensorCount = 0;
   for (int i = 0; i < NUM_SENSORS; i++) {
