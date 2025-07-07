@@ -74,3 +74,5 @@ created_at: "2025-July-01"
 **(4:05pm)** Also I forogor to add links to my bom leme do that too. (worked 15 minutes)
 
 **(5:21pm)** Alr, the code is done and updated. (worked for 1 hour 30 minutes)
+
+**(5:28pm)** Time to work on the 3d model ig.
