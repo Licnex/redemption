@@ -7,7 +7,7 @@ created_at: "2025-July-01"
 
 # Redemption - NERC 2026 Line Follower
 
-**Total Hours:** 36.7 hours
+**Total Hours:** 39.7 hours
 
 ---
 
@@ -93,3 +93,5 @@ created_at: "2025-July-01"
 **(6:03pm)** I'll do some revision over the whole project do some things. *(worked for an hour)*
 **(7:10pm)** Hmm I need 4 more hours. I think explaining my code and revising it a bit should help. *(worked for 3 hours)*
 **(10:09pm)** I added a nice long explaination behind the code for the lfr.
+**(10:35)** You Know what? The wiring sucks, Imma do I all over again. (worked for 1 hour)
+**(12:49)** Actually nvm, the old wiring looks better.

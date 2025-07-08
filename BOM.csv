@@ -1,7 +1,7 @@
 Description,Quantity,Unit Price,Supplier,Supplier Part Number,link,Specifications,Notes
 PID Line follower kit,1,122$,Jsumo,JS15331,https://www.jsumo.com/arduino-pid-based-line-follower-kit,JSUMO 15331 - JSUMO 2WD Chassis Kit,Includes everything except motors wheels motordriver sensors and microcontroller. Also I inscluded the shipping price into this
 Motors,2,29.9$,Jsumo, JS19198,https://www.jsumo.com/profast-12v-5900rpm-fast-gearmotor,JSUMO JS19198 - JSUMO ProFast Motors 5900 rpm 12v,This is a risk. 6000 n20 have a really low torque so getting the kit is reasonable just in case these dont have enough torque.
-Wheels,1,16.7$,Jsumo, JS2042,,JSUMO JS2042 - JSUMO 2WD Wheels,These are the wheels I am using, they are 20x42mm and are sillicone high grip wheels.
+Wheels,1,16.7$,Jsumo, JS2042,https://www.jsumo.com/js2042-silicone-wheel-set-20-x-42mm-pair,JSUMO JS2042 - JSUMO 2WD Wheels,These are the wheels I am using, they are 20x42mm and are sillicone high grip wheels.
 microcontroller,1,$60.19,Sparkfun,DEV-20360,https://www.sparkfun.com/teensy-4-1-without-ethernet-headers.html,teensy 4.1,This is the microcontroller I am using. It has a lot of analog pins and is fast enough to handle the sensors and motors.
 Motor Driver,1,$1.8,Digilog,Tb6612fng,https://digilog.pk/products/tb6612fng-motor-driver-module-for-arduino-in-pakistan?_pos=1&_sid=51d448715&_ss=r,Tb6612fng motor motordriver,Decent cheap motordriver. I am not very familiar with it but it seems to work well with the teensy 4.0 and the motors.
 Buck Converter,1,$1.1,mekatroniks,LM2596S,https://mekatroniks.com/product/lm2596-hvs-high-voltage-buck-adjustable-step-down-in-pakistan/,LM2596S,A 5v buck works well since teensy 4.0 needs 5v to run and outputs the 3v i need for the sensors. 
