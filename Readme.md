@@ -1,4 +1,5 @@
 # Redemption
+![alt text](FinalProject.png)
 An Advanced PID LFR, that will be programmed to go into the competition NERC 2026 inshallah.
 ## Getting Started
 
@@ -10,19 +11,27 @@ An Advanced PID LFR, that will be programmed to go into the competition NERC 202
 - Sensors: QTR MD 13a
 
 ### Curcit:
-![alt text](image.png)
-##### Why dont you just use a pcb?
-1. it will take more time to make a pcb then manufacture it then to just use a bread board and some good ol' wiring.
-2. it will kill my budget.
-3. most of these parts are customs components meaning they cant be used in pcb manufacturing.
-4. The parts that are supported are heavily over priced.
-5. I dont wanna.
+![alt text](Wiring.png)
 ### Chassis:
-![alt text](image-2.png)
+![alt text](Chassis.png)
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details
-
+## Faq
+Why dont you just use a pcb?
+    1. it will take more time to make a pcb then manufacture it then to just use a bread board and some good ol' wiring.
+    2. it will kill my budget.
+    3. most of these parts are customs components meaning they cant be used in pcb manufacturing.
+    4. The parts that are supported are heavily over priced.
+    5. I dont wanna.
+Why isnt the battery mentioned in the BOM?
+    I already have a battery from my previous projects I plan on using that. It'll help save the planet and my budget
+Why are you using the Qtr md 13a instead of the qtr 8a?
+    Cause its better.
+Why are you doing this?
+    A few months ago I underestimated the difficulty of an lfr and now want to go back to that competition for revenge.
+What are those holes on your chassis?
+    If you mean the ones in the center and neck those are just there to decrease the wieght off the chassis.
 ## Bill of Materials (BOM)
 
 | Description | Quantity | Total Price | Supplier | Supplier Part Number | Specifications | Notes |
