@@ -83,4 +83,4 @@ created_at: "2025-July-01"
 **(1:57)** Aight the full project in 3d is basically done *(worked for 1 hour 50 minutes)*
 **(2:14am)** I'll find a decent battery besides that Ill just brush up my read me and I think we are good to go.
 **(2:02pm)** Leme just fix up the chassis and readme *(worked for 30 minutes)*
-**(5:30pm)** I should get a faq sections checking is a lot easier on them.
+**(5:30pm)** I should get a faq sections checking is a lot easier on them. *(worked for 5 minutes)*
