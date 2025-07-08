@@ -12,7 +12,7 @@ An Advanced PID LFR, that will be programmed to go into the competition NERC 202
 - Chassis, ball caster, wheels, screws, all the minor things: Jsumo kit
 - Sensors: QTR MD 13a
 
-### Curcit:
+### Curcit
 
 ![alt text](Wiring.png)
 

@@ -5,8 +5,6 @@ description: "A high tech, powerful line follower robot"
 created_at: "2025-July-01"
 ---
 
-# Redemption - NERC 2026 Line Follower
-
 **Total Hours:** 39.7 hours
 
 ---
