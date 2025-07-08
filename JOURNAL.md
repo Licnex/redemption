@@ -90,4 +90,6 @@ created_at: "2025-July-01"
 **(2:14am)** I'll find a decent battery besides that Ill just brush up my read me and I think we are good to go.
 **(2:02pm)** Leme just fix up the chassis and readme *(worked for 45 minutes)*
 **(5:30pm)** I should get a faq sections checking is a lot easier on them. *(worked for 5 minutes)*
-**(6:39pm)** I'll do some revision over the whole project do some things. (worked for an hour)
+**(6:03pm)** I'll do some revision over the whole project do some things. *(worked for an hour)*
+**(7:10pm)** Hmm I need 4 more hours. I think explaining my code and revising it a bit should help. *(worked for 3 hours)*
+**(10:09pm)** I added a nice long explaination behind the code for the lfr.
