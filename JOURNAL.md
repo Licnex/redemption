@@ -5,11 +5,11 @@ description: "A high tech, powerful line follower robot"
 created_at: "2025-July-01"
 ---
 
-**Total Hours:** 39.7 hours
+**Total Hours:** 42.09 hours
 
 ---
 
-## July 1, 2025 | 4.8 hours
+## July 1, 2025 | 4.83 hours
 
 **(9:23pm)** I am right now just looking at all the prices and different things, this is difficult, to make a winning bot in less 350$, shipping is killing my budget, once I see the customs my soul might acu.(I live in pakistan) All things considered, ali express isnt actually cheaper than getting the products directly from their manufacturer. I have been looking at options for like an hour now.Its between QTR 8A and the QTRX 13MD. The motors, i have found really good. I am thinking of getting the jsumo kit. *(worked for 2 hours 30 minutes)*
 ![alt text](Journal-pics/image.png)
@@ -41,7 +41,7 @@ created_at: "2025-July-01"
 
 ---
 
-## July 6, 2025 | 7.6 hours
+## July 6, 2025 | 7.58 hours
 
 **(3:59pm)** Oh mb the journal is supposed to have the time spent written day wise as well. *(worked for 10 minutes)*
 
@@ -59,7 +59,7 @@ created_at: "2025-July-01"
 
 ---
 
-## July 7, 2025 | 11.5 hours
+## July 7, 2025 | 12.85 hours
 
 **(1:32am)** I have done 16 hours of work, I need to do 4 more hours to even begin qualifing for tier 3, so I think if I spend a bit more like 50$ more I can get a qtrx 14a which should be complex enough for me to take 4hours+ to refactor and understand it. Also due it being so advanced I think it should take me longer to do things with it, like soldering it.Imma do that once I finish refactoring this journal.
 *(worked for 18 minutes)*
@@ -82,14 +82,14 @@ created_at: "2025-July-01"
 
 **(11:40pm)** Chassis is done. So is the motor mount. My project is basically done. Now I just have to make the final picture for my project *(worked for 20 minutes)*
 
-## July 8, 2025 - Currently working
+## July 8, 2025 | 8.08 hours
 
 **(1:57)** Aight the full project in 3d is basically done *(worked for 2 hours 15 minutes)*
 **(2:14am)** I'll find a decent battery besides that Ill just brush up my read me and I think we are good to go.
 **(2:02pm)** Leme just fix up the chassis and readme *(worked for 45 minutes)*
 **(5:30pm)** I should get a faq sections checking is a lot easier on them. *(worked for 5 minutes)*
 **(6:03pm)** I'll do some revision over the whole project do some things. *(worked for an hour)*
-**(7:10pm)** Hmm I need 4 more hours. I think explaining my code and revising it a bit should help. *(worked for 3 hours)*
+**(7:10pm)** Hmm I need 4 more hours. I think explaining my code and revising it a bit should help. *(worked for 3 hours)*![alt text](Track.png)
 **(10:09pm)** I added a nice long explaination behind the code for the lfr.
 **(10:35)** You Know what? The wiring sucks, Imma do I all over again. (worked for 1 hour)
 **(12:49)** Actually nvm, the old wiring looks better.
