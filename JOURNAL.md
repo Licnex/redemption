@@ -43,17 +43,17 @@ created_at: "2025-July-01"
 
 ## July 6, 2025 | 7.58 hours
 
-**(3:59pm)** Oh mb the journal is supposed to have the time spent written day wise as well. *(worked for 10 minutes)*
+**(1:59pm)** Oh mb the journal is supposed to have the time spent written day wise as well. *(worked for 10 minutes)*
 
-**(4:10pm)** I should work on the code now. I'll have to make multiple iterations and take this step by step but it should be easy. *(worked for 1 hour 20 minutes)*
+**(2:10pm)** I should work on the code now. I'll have to make multiple iterations and take this step by step but it should be easy. *(worked for 1 hour 20 minutes)*
 
-**(5:31pm)** Alright I finished the pid code. Now the nerc track code and the test code is left, those will take some time. *(worked for 35 minutes)*
+**(3:31pm)** Alright I finished the pid code. Now the nerc track code and the test code is left, those will take some time. *(worked for 35 minutes)*
 ![alt text](Journal-pics/image-4.png)
-**(6:00pm)** alright I just checked, digilog has the tb661fng a motordriver much better than a zk5ad,leme update the bom and what not to have that. *(worked for 5 minutes)*
+**(4:00pm)** alright I just checked, digilog has the tb661fng a motordriver much better than a zk5ad,leme update the bom and what not to have that. *(worked for 5 minutes)*
 
-**(8:01pm)** Aftari and prayers are done, Im going to code in arduino IDE for a bit-Actually I just remembered I have to update the schematic for the tb6612fng. *(worked for 25 minutes)*
+**(6:01pm)** Aftari and prayers are done, Im going to code in arduino IDE for a bit-Actually I just remembered I have to update the schematic for the tb6612fng. *(worked for 25 minutes)*
 
-**(10:05pm)** Alright I finished the PID Test and motors test.ino and also reformated the code for tb6612fnd, zk5ad uses its direction pins as pwm pins, tb5512fng does not, had to learn how everything worked since im not familiar with tb6612fng. *(worked for 2 hours)*
+**(8:05pm)** Alright I finished the PID Test and motors test.ino and also reformated the code for tb6612fnd, zk5ad uses its direction pins as pwm pins, tb5512fng does not, had to learn how everything worked since im not familiar with tb6612fng. *(worked for 2 hours)*
 
 **(10:22pm)** aight time to code for the nerc track. I'll have to code artificial any degree turns and a proper junction counter *(worked for 3 hours)*
 
