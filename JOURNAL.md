@@ -93,3 +93,7 @@ created_at: "2025-July-01"
 **(10:09pm)** I added a nice long explaination behind the code for the lfr.
 **(10:35pm)** You Know what? The wiring sucks, Imma do I all over again. (worked for 1 hour 14 minutes)
 **(11:49pm)** Actually nvm, the old wiring looks better.
+
+### July 10,2025 | 5 minutes
+
+**(6:36pm)** Submitted.
