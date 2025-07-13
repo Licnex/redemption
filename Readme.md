@@ -91,6 +91,7 @@ The PID algorithm is made up of three components:
   If the robot is suddenly veering off the line, D will step in to reduce overshoot or oscillation.
 
 These three are combined into a single correction value:
+
 ```
 correction = Kp * error + Ki * integral + Kd * derivative
 ```
