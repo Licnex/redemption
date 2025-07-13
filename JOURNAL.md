@@ -74,7 +74,7 @@ created_at: "2025-July-01"
 
 **(3:49pm)** Schematic is done, It took a while to make the custom components for the teensy 4.1, qtr md 13a and have them look good. Now, just the code is left. Oh yeah let me add the images for each day again. *(worked for 16 minutes)*
 
-**(4:05pm)** Also I forogor to add links to my bom leme do that too. *(worked for 1 hour 16 minutes)*
+**(4:05pm)** Also I forogor to add links to my bom leme do that too. *(worked for 1 hour 16 minutes)*![alt text](Journal-pics/image-5.png)
 
 **(5:21pm)** Alr, the code is done and updated. *(worked for 1 hour 7 minutes)*
 
