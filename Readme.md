@@ -207,17 +207,15 @@ Why are you doing this?
     A few months ago I underestimated the difficulty of an lfr and now want to go back to that competition for revenge.
 What are those holes on your chassis?
     If you mean the ones in the center and neck those are just there to decrease the wieght off the chassis.
+Why do you only have PD implemented out of PID?
+    Ki only helps when you have a looped track, however we do not. Thereby even using intergration will make turning less accurate.
 
 ## Bill of Materials (BOM)
 
 | Description | Quantity | Total Price | Supplier | Supplier Part Number | Specifications | Notes |
 |-------------|----------|------------|----------|---------------------|----------------|-------|
-| PID Line follower kit | 1 | $122.00 | Jsumo | JS15331 | JSUMO 15331 - JSUMO 2WD Chassis Kit | Includes everything except motors wheels motordriver sensors and microcontroller. Also I included the shipping price into this |
+| PID Line follower kit | 1 | $92.00 | Jsumo | JS15331 | JSUMO 15331 - JSUMO 2WD Chassis Kit | Includes everything except motors wheels motordriver sensors and microcontroller. Also I included the shipping price into this |
 | Motors | 2 | $29.90 | Jsumo | JS19198 | JSUMO JS19198 - JSUMO ProFast Motors 5900 rpm 12v | This is a risk. 6000 n20 have a really low torque so getting the kit is reasonable just in case these don't have enough torque. |
 | Wheels | 1 | $16.70 | Jsumo | JS2042 | JSUMO JS2042 - JSUMO 2WD Wheels | These are the wheels I am using, they are 20x42mm and are silicone high grip wheels. |
-| Microcontroller | 1 | $15.00 | Digilog | Mega 2560 Pro Mini | Mega 2560 Pro Mini Embed CH340G ATmega 2560-16A | Compact version of Arduino Mega with plenty of I/O pins for sensors and motor control. Good alternative to Teensy with lower cost. |
-| Motor Driver | 1 | $1.80 | Digilog | Tb6612fng | Tb6612fng motordriver | Decent cheap motordriver. I am not very familiar with it but it seems to work well with the teensy 4.0 and the motors. |
-| Buck Converter | 1 | $1.10 | Mekatroniks | LM2596S | LM2596S | A 5v buck works well since teensy 4.0 needs 5v to run and outputs the 3v I need for the sensors. |
-| Sensor array | 2 | $100.00 | Pololu | 4253 | QTR MD 13A | These are known as the best sensors besides the qtrx which are like twice the price. Not too familiar with them, and will have to be careful with them since they are quite expensive. |
 
-**Total Estimated Cost:** ~$286.50
+**Total Estimated Cost:** ~$136.50
