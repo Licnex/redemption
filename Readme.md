@@ -1,26 +1,78 @@
+<a id="readme-top"></a>
+
+[![Stars][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+
 # Redemption
 
-![alt text](FinalProject.png)
-An Advanced PID LFR, that will be programmed to go into the competition NERC 2026 inshallah.
+![Line Follower Robot](pics/FinalProject.png)
+An Advanced PID LFR, that can dance if you want it too.
+
+<!-- TABLE OF CONTENTS -->
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li><a href="#why">Why?</a></li>
+    <li>
+      <a href="#getting-started">Getting Started</a>
+      <ul>
+        <li><a href="#specs">Specs</a></li>
+        <li><a href="#circuit">Circuit</a></li>
+        <li><a href="#chassis">Chassis</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#code-explanation">Code Explanation</a>
+      <ul>
+        <li><a href="#motorstest">MotorsTest</a></li>
+        <li><a href="#pid-test">PID Test</a></li>
+        <li><a href="#pid">PID</a></li>
+        <li><a href="#nerc">NERC</a></li>
+      </ul>
+    </li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#bill-of-materials-bom">Bill of Materials</a></li>
+    <li><a href="#license">License</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ol>
+</details>
+
+## Why?
+
+Last year I lost the national engineering competition very badly. This time I want to improve, and learn. Also Lfrs are cool asf when they work.
+This linefollower will be a comeback inshallah.
 
 ## Getting Started
 
+### Setup
+
+- Order everything in the bom + a nano or nano clone, qtr 8a, the tb6612fng motor driver. a large breadboard and a 11v battery, and some basic robotics supplies
+- assemble the kit according to this [assembly guide](https://blog.jsumo.com/arduino-line-follower-robot-assembly-guide/) until the assembly of qtr 8rc part
+- put a the nano and tb6612fng motor driver into the breadboard, use double tape to stick the bread board and battery to the chassis
+- Wire it up as seen in the circuit diagram. I recommend using a buck converter in between the battery and the nano, but most nanos can tolerate 12v so I wont be using any again to save costs.
+- Download Arduino IDE
+- Go to libraries, search qtr sensors and go ahead and install it. Here is a picture if you're confused ![pic](pics/Library.png)
+- Choose which code you want to upload, I recommend first doing motor test to make sure the motors work then tuning PID with PIDTest,then if you have the tracks, doing PID and Nerc.
+
 ### Specs
 
-- Microcontroller: Arduino Mega 2560 Pro Mini
+- Microcontroller: Arduino Nano clone
 - Motor Driver: Tb6612fng motor driver
-- Chassis, ball caster, wheels, screws, all the minor things: Jsumo kit
-- Sensors: QTR MD 13a
+- Motor: 3600 rpm jsumo profast motors
+- Wheels:High Grip Silicone SLT20 Wheels x2
+- Sensors: QTR 8a
+- Chassis: 3d printed chassis with premade holes
 
-### Curcit
+### Circuit
 
-![alt text](Wiring.png)
+![Circuit Diagram](pics/Wiring.png)
 
 ### Chassis
 
-![alt text](Chassis.png)
+![Chassis Design](pics/Chassis.png)
+Just a normal chassis with some holes in it to minimize weight. I haven't completely perfected the dimensions yet, but it works well.
 
-## Code Explaination
+### Code Explanation
 
 #### MotorsTest
 
@@ -45,11 +97,11 @@ This ensures that every aspect of the drivetrain — including signal direction,
 
 ---
 
-### PID Test
+#### PID Test
 
 This is a **debug function** that prints multiple things to the serial monitor, including:
 
-- Sensor values (there are 13 of them),
+- Sensor values (there are 8 of them),
 - PID corrections.
 
 It can be used to **tune the PID values** or to verify that the sensor readings and control logic are behaving as expected.
@@ -58,7 +110,7 @@ It can be used to **tune the PID values** or to verify that the sensor readings 
 
 ---
 
-### PID
+#### PID
 
 This part of the code does **three things**:
 
@@ -68,13 +120,13 @@ This part of the code does **three things**:
 
 ---
 
-#### Step 1: Position Calculation
+##### Step 1: Position Calculation
 
 This is done using the **QTR Library**, which works with the QTR sensor array. It returns a weighted average of sensor values to determine where the line is under the robot. This gives a single value that represents the position of the line relative to the center of the bot.
 
 ---
 
-#### Step 2: PID Correction
+##### Step 2: PID Correction
 
 The PID algorithm is made up of three components:
 
@@ -92,13 +144,13 @@ The PID algorithm is made up of three components:
 
 These three are combined into a single correction value:
 
-```
+```csharp
 correction = Kp * error + Ki * integral + Kd * derivative
 ```
 
 ---
 
-#### Step 3: Applying Correction
+##### Step 3: Applying Correction
 
 The correction value is used to adjust the speeds of the left and right motors:
 
@@ -113,7 +165,7 @@ This is done using **PWM (Pulse Width Modulation)** to finely control the motor 
 
 ---
 
-### NERC
+#### NERC
 
 This can be split into four components:
 
@@ -124,21 +176,21 @@ This can be split into four components:
 
 ---
 
-#### 1. Line Following
+##### 1. Line Following
 
-When there is **no junction or turn**, the bot operates as a simple line-following robot using the **PID algorithm** described above.
+When there is **no junction or turn** needed to be done, the bot operates as a simple line-following robot using the PID algorithm further explained above.
 
 ---
 
-#### 2. Junction Detection
+##### 2. Junction Detection
 
-In my testing, **realistically all 13 sensors are never aligned with the line** during normal following.
+In my testing with the QTR 8a sensor array, I determined that:
 
 So I made a rule:  
-> **While more than 7 of my sensors detect the line**, treat it as a junction.
+> **When 4 or more sensors detect the line simultaneously**, treat it as a junction.
 
 - During this, the robot goes **full speed** and sets a boolean `junctionDetected = true`.
-- It keeps reading sensors until the junction ends (i.e., fewer than 8 sensors are on the line).
+- It keeps reading sensors until the junction ends (i.e., fewer than 4 sensors are on the line).
 - At that point:
   - If `junctionDetected` is still `true`, we **increment a counter** and set it back to `false`.
 
@@ -146,9 +198,9 @@ This is a reliable way to detect and count junctions on the fly.
 
 ---
 
-#### 3. Track Strategy
+##### 3. Track Strategy
 
-![alt text](Track.png)  
+![Track Layout](pics/Track.png)  
 This is the **track I must follow**.
 
 To do this, I rely on the **junction counter** from above.
@@ -163,17 +215,19 @@ This lets the bot follow a custom path through the track using only its own sens
 
 ---
 
-#### 4. Any-Degree Turns
+##### 4. Any-Degree Turns
 
 For turning logic:
 
 - If I’m turning **left**, the bot keeps spinning left until:
-  - The **middle-left sensor** detects the line,
-  - And **none of the right-side sensors** detect the line.
+  - The **sensors 3-4** (left-middle) detect the line,
+  - And **none of the sensors 5-8** (right side) detect the line.
 
 This ensures that the turn is **fully completed** and that the bot is properly aligned before continuing.
 
-The same logic is applied symmetrically for **right turns**, using the middle-right and left-side sensors instead.
+The same logic is applied symmetrically for **right turns**, using sensors 5-6 (right-middle) and ensuring none of the sensors 1-4 (left side) detect the line.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ---
 
@@ -191,31 +245,49 @@ Tuning the PID values (P, I, and D constants) is key—too much of one can cause
 
 This project is licensed under the MIT License - see the LICENSE file for details
 
-## Faq
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-Why dont you just use a pcb?
-    1. it will take more time to make a pcb then manufacture it then to just use a bread board and some good ol' wiring.
-    2. it will kill my budget.
-    3. most of these parts are customs components meaning they cant be used in pcb manufacturing.
-    4. The parts that are supported are heavily over priced.
-    5. I dont wanna.
-Why isnt the battery mentioned in the BOM?
-    I already have a battery from my previous projects I plan on using that. It'll help save the planet and my budget
-Why are you using the Qtr md 13a instead of the qtr 8a?
-    Cause its better.
-Why are you doing this?
-    A few months ago I underestimated the difficulty of an lfr and now want to go back to that competition for revenge.
-What are those holes on your chassis?
-    If you mean the ones in the center and neck those are just there to decrease the wieght off the chassis.
-Why do you only have PD implemented out of PID?
-    Ki only helps when you have a looped track, however we do not. Thereby even using intergration will make turning less accurate.
+## FAQ
+
+**Why don't you just use a PCB?**
+
+1. It will take more time to make a PCB then manufacture it compared to using a breadboard and some good ol' wiring.
+2. It would significantly increase my budget.
+3. Most of these parts are custom components that can't be used in standard PCB manufacturing.
+4. The PCB-compatible parts are heavily overpriced.
+5. I don't want to.
+
+**Why isn't the battery mentioned in the BOM?**  
+I already have a battery from my previous projects that I plan on using. It'll help save the planet and my budget.
+
+**Why did you choose the QTR 8a sensor array?**  
+It provides sufficient sensing capability for the track while maintaining a good balance of cost and complexity.
+
+**Why are you doing this?**  
+A few months ago I underestimated the difficulty of an LFR and now want to go back to that competition for revenge.
+
+**What are those holes on your chassis?**  
+If you mean the ones in the center and neck, those are just there to decrease the weight of the chassis.
+
+**Why do you only have PD implemented out of PID?**  
+Ki (Integral) only helps when you have a looped track, which we do not. Using integration would make turning less accurate for our specific course.
+
+**Why aren't the microcontroller and sensor in the budget?**  
+Due to the low budget, I will buy them myself.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Bill of Materials (BOM)
 
-| Description | Quantity | Total Price | Supplier | Supplier Part Number | Specifications | Notes |
-|-------------|----------|------------|----------|---------------------|----------------|-------|
-| PID Line follower kit | 1 | $92.00 | Jsumo | JS15331 | JSUMO 15331 - JSUMO 2WD Chassis Kit | Includes everything except motors wheels motordriver sensors and microcontroller. Also I included the shipping price into this |
-| Motors | 2 | $29.90 | Jsumo | JS19198 | JSUMO JS19198 - JSUMO ProFast Motors 5900 rpm 12v | This is a risk. 6000 n20 have a really low torque so getting the kit is reasonable just in case these don't have enough torque. |
-| Wheels | 1 | $16.70 | Jsumo | JS2042 | JSUMO JS2042 - JSUMO 2WD Wheels | These are the wheels I am using, they are 20x42mm and are silicone high grip wheels. |
+### Last updated: 2025-07-16
 
-**Total Estimated Cost:** ~$136.50
+| Description          | Quantity | Unit Price | Supplier | Part Number | Link                                                           | Specifications                        | Notes                                                    |
+|----------------------|----------|------------|----------|------------|----------------------------------------------------------------|--------------------------------------|----------------------------------------------------------|
+| PID Line follower kit | 1        | $99.07     | Jsumo    | JS15331    | [JSUMO Store](https://www.jsumo.com/arduino-pid-based-line-follower-kit) | JSUMO 15331 - JSUMO 2WD Chassis Kit  | Includes almost everything. Shipping included.            |
+| Motors               | 3        | $44.90     | Jsumo    | JS19198    | [JSUMO Store](https://www.jsumo.com/profast-12v-5900rpm-fast-gearmotor) | JSUMO JS19198 - JSUMO ProFast Motors 5900 rpm 12v | High speed motors; I'm using these if I can make the robot light enough so that the lack of torque is manageable. |
+
+**Total Estimated Cost:** $145.00
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- CONTACT -->

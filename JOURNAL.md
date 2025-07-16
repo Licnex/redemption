@@ -102,3 +102,4 @@ created_at: "2025-July-01"
 
 **7:18** it got approved for 6pts, I need the 350$, I think adding a rotary encoders interface should be good for like mode, kd, kp. Leme do some research on it. (worked for 1 hour 30 minutes)
 **10:33** ok any more features will just make the bot slower,maybe i should just lower the cost of my bot.
+**6:39** ok Cyao just said this project need to be more polished so I will do just that. (worked for 4hours)

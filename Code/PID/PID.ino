@@ -1,7 +1,7 @@
 #include <QTRSensors.h>
 
 // === QTR Sensor Setup ===
-const uint8_t NUM_SENSORS = 13;
+const uint8_t NUM_SENSORS = 8;
 QTRSensors qtr;
 uint16_t sensorValues[NUM_SENSORS];
 
@@ -38,14 +38,16 @@ void setup() {
 
   // QTR Sensor Setup
   qtr.setTypeAnalog();
+
+  // Update pins to match your wiring — typical A0–A7
   qtr.setSensorPins((const uint8_t[]) {
-    A3, A2, A1, A0, A17, A16, A15, A14, A13, A12, A11, A10, A9
+    A0, A1, A2, A3, A4, A5, A6, A7
   }, NUM_SENSORS);
 }
 
 void loop() {
-  int position = qtr.readLineBlack(sensorValues); // returns 0–12000
-  int error = position - 6500; // center for 13 sensors
+  int position = qtr.readLineBlack(sensorValues); // returns 0–7000 for 8 sensors
+  int error = position - 3500; // 3500 is center for 8 sensors
 
   integral += error;
   int derivative = error - lastError;

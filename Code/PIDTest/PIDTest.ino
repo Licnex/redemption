@@ -1,9 +1,8 @@
 #include <QTRSensors.h>
 
 // === QTR Sensor Setup ===
-const uint8_t NUM_SENSORS = 13;
+const uint8_t NUM_SENSORS = 8;
 QTRSensors qtr;
-
 uint16_t sensorValues[NUM_SENSORS];
 
 // === PID Constants ===
@@ -21,19 +20,21 @@ const int maxSpeed  = 255;
 void setup() {
   Serial.begin(9600);
   delay(500);
-  Serial.println("QTR Sensor Debug Test (No Motor Output)");
+  Serial.println("QTR-8A Sensor Debug Test (No Motor Output)");
 
   // QTR sensor setup (analog mode)
   qtr.setTypeAnalog();
+
+  // Update with your actual analog pins used for QTR-8A
   qtr.setSensorPins((const uint8_t[]) {
-    A3, A2, A1, A0, A17, A16, A15, A14, A13, A12, A11, A10, A9
+    A0, A1, A2, A3, A4, A5, A6, A7
   }, NUM_SENSORS);
 }
 
 void loop() {
-  // Read line position (0 to 12000 for 13 sensors)
+  // Read line position (0 to 7000 for 8 sensors)
   int position = qtr.readLineBlack(sensorValues);
-  int error = position - 6500; // 6500 is center for 13 sensors
+  int error = position - 3500; // 3500 is center for 8 sensors
 
   // PID computation
   integral += error;
@@ -64,5 +65,5 @@ void loop() {
   Serial.println(rightMotor);
 
   lastError = error;
-  delay(200); // Easier to read in Serial Monitor
+  delay(200); // Adjust as needed
 }

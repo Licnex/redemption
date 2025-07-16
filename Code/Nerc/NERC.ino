@@ -1,7 +1,7 @@
 #include <QTRSensors.h>
 
 // === QTR Sensor Setup ===
-const uint8_t NUM_SENSORS = 13;
+const uint8_t NUM_SENSORS = 8;
 QTRSensors qtr;
 uint16_t sensorValues[NUM_SENSORS];
 
@@ -41,10 +41,10 @@ void setup() {
   pinMode(LmF, OUTPUT);
   pinMode(LmB, OUTPUT);
 
-  // QTR setup: using 13 analog pins in custom order
+  // QTR setup: 8 analog pins
   qtr.setTypeAnalog();
   qtr.setSensorPins((const uint8_t[]) {
-    A3, A2, A1, A0, A17, A16, A15, A14, A13, A12, A11, A10, A9
+    A0, A1, A2, A3, A4, A5, A6, A7
   }, NUM_SENSORS);
 }
 
@@ -52,8 +52,8 @@ void loop() {
   int position = qtr.readLineBlack(sensorValues);
   int blackCount = BlackCount();
 
-  // Detect a junction (5+ black sensors)
-  while (blackCount >= 8) {
+  // Detect a junction (tune threshold for 8 sensors)
+  while (blackCount >= 5) {
     position = qtr.readLineBlack(sensorValues);
     blackCount = BlackCount();
     driveMotors(255, 255);
@@ -69,24 +69,22 @@ void loop() {
 
   // Turn decisions
   if (juncCount == 4 || juncCount == 7 || juncCount == 16 || juncCount == 17) {
-    if (Track == 1){ 
-    Left90();
-    }
-    else {
-    Right90();
+    if (Track == 1) {
+      LeftTurn();
+    } else {
+      RightTurn();
     }
   }
 
   if (juncCount == 11 || juncCount == 12 || juncCount == 21 || juncCount == 22) {
-    if (Track == 1){
-    Right90();
-    }
-    else {
-    Left90();
+    if (Track == 1) {
+      RightTurn();
+    } else {
+      LeftTurn();
     }
   }
 
-  // Line following
+  // Normal line following
   linefollow(position);
 }
 
@@ -101,7 +99,7 @@ void driveMotors(int rightPWM, int leftPWM) {
 }
 
 void linefollow(int position) {
-  int error = position - 6500; // 13 sensors × 1000/2 = 6500 center
+  int error = position - 3500; // 8 sensors × 1000/2 = 3500 center
   integral += error;
   int derivative = error - lastError;
   float correction = Kp * error + Ki * integral + Kd * derivative;
@@ -124,31 +122,32 @@ int BlackCount() {
   return count;
 }
 
-void Right90() {
-  Serial.println(">> Turning right 90°...");
+// Generic right turn function (name is kept "RightTurn" for clarity)
+void RightTurn() {
+  Serial.println(">> Turning right...");
   while (true) {
     qtr.read(sensorValues);
-    bool rightOff = sensorValues[10] < threshold && sensorValues[11] < threshold && sensorValues[12] < threshold;
-    bool midLeftOn = sensorValues[5] > threshold || sensorValues[6] > threshold;
+    bool rightOff = sensorValues[6] < threshold && sensorValues[7] < threshold;
+    bool midLeftOn = sensorValues[3] > threshold || sensorValues[2] > threshold;
     if (rightOff && midLeftOn) break;
     driveMotors(100, -100);
     delay(10);
   }
   driveMotors(0, 0);
-  Serial.println(">> Right 90 complete.");
-} // this works for any degree turn not just 90, i just named it that cause i will be using it in 90 degree turns
+  Serial.println(">> Right turn complete.");
+}
 
-void Left90() {
-  Serial.println(">> Turning left 90°...");
+// Generic left turn function
+void LeftTurn() {
+  Serial.println(">> Turning left...");
   while (true) {
     qtr.read(sensorValues);
-    bool leftOff = sensorValues[0] < threshold && sensorValues[1] < threshold && sensorValues[2] < threshold;
-    bool midRightOn = sensorValues[6] > threshold || sensorValues[7] > threshold;
+    bool leftOff = sensorValues[0] < threshold && sensorValues[1] < threshold;
+    bool midRightOn = sensorValues[4] > threshold || sensorValues[5] > threshold;
     if (leftOff && midRightOn) break;
     driveMotors(-100, 100);
     delay(10);
   }
   driveMotors(0, 0);
-  Serial.println(">> Left 90 complete.");
+  Serial.println(">> Left turn complete.");
 }
-// this works for any degree turn not just 90 i just named it that cause i will be using it in 90 degree turns

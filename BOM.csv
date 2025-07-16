@@ -1,4 +1,6 @@
-Description,Quantity,Unit Price,Supplier,Supplier Part Number,link,Specifications,Notes
-PID Line follower kit,1,122$,Jsumo,JS15331,https://www.jsumo.com/arduino-pid-based-line-follower-kit,JSUMO 15331 - JSUMO 2WD Chassis Kit,Includes everything except motors wheels motordriver sensors and microcontroller. Also I inscluded the shipping price into this
-Motors,2,29.9$,Jsumo, JS19198,https://www.jsumo.com/profast-12v-5900rpm-fast-gearmotor,JSUMO JS19198 - JSUMO ProFast Motors 5900 rpm 12v,This is a risk. 6000 n20 have a really low torque so getting the kit is reasonable just in case these dont have enough torque.
-Wheels,1,16.7$,Jsumo, JS2042,https://www.jsumo.com/js2042-silicone-wheel-set-20-x-42mm-pair,JSUMO JS2042 - JSUMO 2WD Wheels,These are the wheels I am using, they are 20x42mm and are sillicone high grip wheels.
+# Bill of Materials for Redemption Line Follower Robot
+# Last updated: 2025-07-16
+Description,Quantity,Unit Price,Supplier,Part Number,Link,Specifications,Notes
+PID Line follower kit,1,$99.07,Jsumo,JS15331,https://www.jsumo.com/arduino-pid-based-line-follower-kit,JSUMO 15331 - JSUMO 2WD Chassis Kit,Includes almost everything. Shipping included.
+Motors,3,$44.90,Jsumo,JS19198,https://www.jsumo.com/profast-12v-5900rpm-fast-gearmotor,JSUMO JS19198 - JSUMO ProFast Motors 5900 rpm 12v,High speed motors; kit recommended if torque is insufficient.
+Total Cost,,$145,,,,,
