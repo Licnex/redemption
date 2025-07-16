@@ -78,7 +78,7 @@ Just a normal chassis with some holes in it to minimize weight. I haven't comple
 - Order everything in the BOM + a nano or nano clone, QTR 8a, the TB6612FNG motor driver. A large breadboard and an 11v battery, and some basic robotics supplies
 - Assemble the kit according to this [assembly guide](https://blog.jsumo.com/arduino-line-follower-robot-assembly-guide/) until the assembly of QTR 8RC part
 - Put the nano and TB6612FNG motor driver into the breadboard, use double tape to stick the breadboard and battery to the chassis
-- Wire it up as seen in the circuit diagram. I recommend using a buck converter in between the battery and the nano, but most nanos can tolerate 12v so I won't be using any again to save costs
+- Wire it up as seen in the circuit diagram. I recommend using a buck converter in between the battery and the nano, but most Nano clones can tolerate 12v so I won't be using any to save costs also you should connect the power symbols on the PowerLines in the breadboard for conventions sake.
 [- Download Arduino IDE](https://www.arduino.cc/en/software/)
 - Go to libraries, search QTR sensors and go ahead and install it. Here is a picture if you're confused:
   ![Arduino Library Manager](pics/Library.png)
