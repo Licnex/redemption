@@ -77,11 +77,13 @@ Just a normal chassis with some holes in it to minimize weight. I haven't comple
 - Assemble the kit according to this [assembly guide](https://blog.jsumo.com/arduino-line-follower-robot-assembly-guide/) until the assembly of QTR 8RC part
 - Put the nano and TB6612FNG motor driver into the breadboard, use double tape to stick the breadboard and battery to the chassis
 - Wire it up as seen in the circuit diagram. I recommend using a buck converter in between the battery and the nano, but most nanos can tolerate 12v so I won't be using any again to save costs
-- Download Arduino IDE
+[- Download Arduino IDE](https://www.arduino.cc/en/software/)
 - Go to libraries, search QTR sensors and go ahead and install it. Here is a picture if you're confused:
   ![Arduino Library Manager](pics/Library.png)
 - Now [download my repo](https://github.com/licnex/redemption/archive/refs/heads/main.zip)
 - Choose which code you want to upload. I recommend first doing motor test to make sure the motors work, then tuning PID with PIDTest, and finally if you have the tracks, doing PID and NERC
+- Get an upload cable, depends on what type of nano clone you have. a usb to micro usb cable should work
+- upload code.
 
 > **Note**: None of this code will likely work out of the box - don't expect it to! You will still have to tune things and get some stuff working on your own. Perhaps your motors are inverted, your sensors need a different threshold, pid isn't tuned enough or you mixed up gnd and vcc with the other and fried a component. There are countless things that can go wrong and probably will go wrong, but if you want it to work, you will need to tinker. All I can do is help when you ask - be sure to open an issue when something doesn't work, and I'll be more than happy to debug with you on a call. You should also check out the explanations below and Google stuff or [reach out to me](https://mominkhan.codes) when you don't understand something.
 
