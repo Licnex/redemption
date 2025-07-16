@@ -289,13 +289,13 @@ In the main loop, these functions are combined into a choreographed sequence:
 3. Spin counter-clockwise
 4. Pause before repeating
 
-This dance routine showcases the robot's maneuverability and provides a fun demo mode that's sure to entertain!
+This is to be used to celebrate the bot working.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details
+This project is licensed under the GPLv3 License - see the LICENSE file for details
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
