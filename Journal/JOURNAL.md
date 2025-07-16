@@ -18,3 +18,16 @@ Changes made:
 These navigation improvements make the document more user-friendly and professional in appearance.
 
 ![Journal Image](image.png)
+
+## 2025-07-17: Added Dance Code Explanation
+
+Today I added documentation for the Dance.ino file to the README.md. The Dance program is a fun demo that showcases the robot's maneuverability with a choreographed dance routine.
+
+Changes made:
+
+- Added "Dance" to the Table of Contents
+- Created a new "Dance" section with detailed explanation of the code
+- Added code samples showing key functions used in the dance routine
+- Listed the dance sequence steps
+
+This addition completes the documentation of all code files in the project.

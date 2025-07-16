@@ -7,7 +7,7 @@
 
 ![Line Follower Robot](pics/FinalProject.png)
 An Advanced PID LFR, that can dance if you want it too.
-
+ps; this is what the project should look like, I haven't really made it yet.
 <!-- TABLE OF CONTENTS -->
 <details>
   <summary>Table of Contents</summary>
@@ -29,6 +29,7 @@ An Advanced PID LFR, that can dance if you want it too.
         <li><a href="#pid-test">PID Test</a></li>
         <li><a href="#pid">PID</a></li>
         <li><a href="#nerc">NERC</a></li>
+        <li><a href="#dance">Dance</a></li>
       </ul>
     </li>
     <li><a href="#faq">FAQ</a></li>
@@ -90,6 +91,7 @@ Just a normal chassis with some holes in it to minimize weight. I haven't comple
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 #### MotorsTest
+
 (this is also the dance th)
 `void loop()` calls the `motorsTest()` function which takes the speed as an input. The function itself calls other functions that make the bot:
 
@@ -255,6 +257,52 @@ Together, these three components calculate a single correction value. This value
 Finally, this correction is applied to the motors using PWM (Pulse Width Modulation), allowing for fine control over their speed. The result is smooth and responsive line following behavior.
 
 Tuning the PID values (P, I, and D constants) is key—too much of one can cause wobbling or sluggish movement. But when tuned well, the robot can follow lines quickly and accurately, even around sharp turns.(Though I wont need it for that.)
+
+---
+
+#### Dance
+
+This is a fun little program that makes the robot dance! It's not part of the line following functionality but demonstrates motor control in a playful way.
+
+The dance routine consists of three main movements:
+
+- **Spinning in Place**: The robot rotates in one spot by running motors in opposite directions
+- **Wiggling**: The robot does a little wiggle by alternating between slight right and left turns
+- **Reverse Spinning**: The robot spins in the opposite direction
+
+The code implements several helpful functions:
+
+```cpp
+// Makes the robot spin in place at given speed for a duration
+void spinInPlace(int speed, int duration) {
+  setMotor(speed, -speed);  // One motor forward, one backward
+  delay(duration);
+  stopMotors();
+  delay(200);  // Brief pause
+}
+
+// Creates a wiggle motion by alternating slight turns
+void wiggle(int speed, int times, int delayTime) {
+  for (int i = 0; i < times; i++) {
+    setMotor(speed, speed / 2);  // Turn right
+    delay(delayTime);
+    setMotor(speed / 2, speed);  // Turn left
+    delay(delayTime);
+  }
+  stopMotors();
+}
+```
+
+In the main loop, these functions are combined into a choreographed sequence:
+
+1. Spin clockwise
+2. Wiggle back and forth 4 times
+3. Spin counter-clockwise
+4. Pause before repeating
+
+This dance routine showcases the robot's maneuverability and provides a fun demo mode that's sure to entertain!
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## License
 
