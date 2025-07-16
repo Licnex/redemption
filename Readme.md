@@ -305,4 +305,7 @@ Due to the low budget, I will buy them myself.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- CONTACT -->
+[stars-shield]: https://img.shields.io/github/stars/licnex/redemption.svg?style=for-the-badge
+[stars-url]: https://github.com/licnex/redemption/stargazers
+[issues-shield]: https://img.shields.io/github/issues/licnex/redemption.svg?style=for-the-badge
+[issues-url]: https://github.com/licnex/redemption/issues

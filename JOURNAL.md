@@ -105,4 +105,5 @@ created_at: "2025-July-01"
 **6:39** ok Cyao just said this project need to be more polished so I will do just that. (worked for 4hours)
 
 ### July 17, 2025 | currently working
-**12:02**
+
+**12:02** Still trying to polish up some stuff (worked till 12:56 am)
