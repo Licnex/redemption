@@ -22,8 +22,9 @@ An Advanced PID LFR, that can dance if you want it too.
       </ul>
     </li>
     <li>
-      <a href="#code-explanation">Code Explanation</a>
+      <a href="#code-explanation-and-setup">Code Explanation & Setup</a>
       <ul>
+        <li><a href="#setup">Setup Guide</a></li>
         <li><a href="#motorstest">MotorsTest</a></li>
         <li><a href="#pid-test">PID Test</a></li>
         <li><a href="#pid">PID</a></li>
@@ -42,17 +43,11 @@ An Advanced PID LFR, that can dance if you want it too.
 Last year I lost the national engineering competition very badly. This time I want to improve, and learn. Also Lfrs are cool asf when they work.
 This linefollower will be a comeback inshallah.
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 ## Getting Started
 
-### Setup
-
-- Order everything in the bom + a nano or nano clone, qtr 8a, the tb6612fng motor driver. a large breadboard and a 11v battery, and some basic robotics supplies
-- assemble the kit according to this [assembly guide](https://blog.jsumo.com/arduino-line-follower-robot-assembly-guide/) until the assembly of qtr 8rc part
-- put a the nano and tb6612fng motor driver into the breadboard, use double tape to stick the bread board and battery to the chassis
-- Wire it up as seen in the circuit diagram. I recommend using a buck converter in between the battery and the nano, but most nanos can tolerate 12v so I wont be using any again to save costs.
-- Download Arduino IDE
-- Go to libraries, search qtr sensors and go ahead and install it. Here is a picture if you're confused ![pic](pics/Library.png)
-- Choose which code you want to upload, I recommend first doing motor test to make sure the motors work then tuning PID with PIDTest,then if you have the tracks, doing PID and Nerc.
+p.s if you're a reviewer from hackclub I recommend checking out FAQ - it'll save you and me some time.
 
 ### Specs
 
@@ -72,7 +67,25 @@ This linefollower will be a comeback inshallah.
 ![Chassis Design](pics/Chassis.png)
 Just a normal chassis with some holes in it to minimize weight. I haven't completely perfected the dimensions yet, but it works well.
 
-### Code Explanation
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## Code Explanation & Setup
+
+### Setup
+
+- Order everything in the BOM + a nano or nano clone, QTR 8a, the TB6612FNG motor driver. A large breadboard and an 11v battery, and some basic robotics supplies
+- Assemble the kit according to this [assembly guide](https://blog.jsumo.com/arduino-line-follower-robot-assembly-guide/) until the assembly of QTR 8RC part
+- Put the nano and TB6612FNG motor driver into the breadboard, use double tape to stick the breadboard and battery to the chassis
+- Wire it up as seen in the circuit diagram. I recommend using a buck converter in between the battery and the nano, but most nanos can tolerate 12v so I won't be using any again to save costs
+- Download Arduino IDE
+- Go to libraries, search QTR sensors and go ahead and install it. Here is a picture if you're confused:
+  ![Arduino Library Manager](pics/Library.png)
+- Now [download my repo](https://github.com/licnex/redemption/archive/refs/heads/main.zip)
+- Choose which code you want to upload. I recommend first doing motor test to make sure the motors work, then tuning PID with PIDTest, and finally if you have the tracks, doing PID and NERC
+
+> **Note**: None of this code will likely work out of the box - don't expect it to! You will still have to tune things and get some stuff working on your own. Perhaps your motors are inverted, your sensors need a different threshold, pid isn't tuned enough or you mixed up gnd and vcc with the other and fried a component. There are countless things that can go wrong and probably will go wrong, but if you want it to work, you will need to tinker. All I can do is help when you ask - be sure to open an issue when something doesn't work, and I'll be more than happy to debug with you on a call. You should also check out the explanations below and Google stuff or [reach out to me](https://mominkhan.codes) when you don't understand something.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 #### MotorsTest
 
