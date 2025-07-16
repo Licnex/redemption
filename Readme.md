@@ -249,20 +249,6 @@ The same logic is applied symmetrically for **right turns**, using sensors 5-6 (
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
----
-
-Integral (I): This keeps track of past errors. If the bot has been slightly off-center for a while, the integral will build up and apply a stronger correction to push it back toward the line. It's useful for small consistent errors.
-
-Derivative (D): This looks at how fast the error is changing. If the bot is veering off quickly, it will apply a counter-correction early to slow it down, helping prevent overshooting and oscillations.
-
-Together, these three components calculate a single correction value. This value is then used to adjust the speeds of the left and right motors. For example, if the bot is drifting to the left, the correction will slow down the left motor and speed up the right one, steering it back to the center of the line.
-
-Finally, this correction is applied to the motors using PWM (Pulse Width Modulation), allowing for fine control over their speed. The result is smooth and responsive line following behavior.
-
-Tuning the PID values (P, I, and D constants) is key—too much of one can cause wobbling or sluggish movement. But when tuned well, the robot can follow lines quickly and accurately, even around sharp turns.(Though I wont need it for that.)
-
----
-
 #### Dance
 
 This is a fun little program that makes the robot dance! It's not part of the line following functionality but demonstrates motor control in a playful way.
