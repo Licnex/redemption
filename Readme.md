@@ -5,7 +5,7 @@
 
 # Redemption
 
-![Line Follower Robot](pics/FinalProject.png)
+![Line Follower Robot](pics/Projectpic.png)
 An Advanced PID LFR, that can dance if you want it too.
 ps; this is what the project should look like, I haven't really made it yet.
 <!-- TABLE OF CONTENTS -->
